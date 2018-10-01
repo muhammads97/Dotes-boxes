@@ -1,0 +1,122 @@
+
+
+function store (no. of row,no. of coloumn):
+	i=i+1//increase index of store array
+    store move details in array of structure 
+	//(remaining dots,no.row,no.coloumn,semif,player turn,fill,player1 score, player2 score)
+	if (move is vertical) :
+		store value of box.vl
+	else if (move is horizontal):
+		store value of box.hl	
+	
+	return
+
+function undo_v():
+	set remaining dots to its value in the previous move
+	store the store array in redo array
+	k=k+1//k is the index of redo array
+	box[moves[i].n][moves[i].m].vl=0
+	set image of vertical move to blanck 
+	if (current box is semifill)//stored semif value
+		box[moves[i].n][moves[i].m].semif=0
+	if (box[moves[i].n][moves[i].m] is fill)
+		box[moves[i].n][moves[i].m].f=0
+		set image of box to blanck
+	if (box[moves[i].n][moves[i].m-1] if fill)
+		box[moves[i].n][moves[i].m-1].f=0
+		set image of box to blanck
+	set player1 score to its value in the previous move
+	set player2 score to its value in the previous move
+	set player turn to its value in the previous move
+	Set move_zero //delete the current move from the store array
+	i=1-1
+
+
+
+function undo_h():
+	set remaining dots to its value in the previous move
+	store the store array in redo array
+	k=k+1//k is the index of redo array 
+	box[moves[i].n][moves[i].m].hl=0
+	set image of horizontal move to blanck 
+	if (current box is semifill)//stored semif value
+		box[moves[i].n][moves[i].m].semif=0
+	if (box[moves[i].n][moves[i].m] is fill)
+		box[moves[i].n][moves[i].m].f=0
+		set image of box to blanck
+	if (box[moves[i].n][moves[i].m-1] if fill)
+		box[moves[i].n][moves[i].m-1].f=0
+		set image of box to blanck
+	set player1 score to its value in the previous move
+	set player2 score to its value in the previous move
+	set player turn to its value in the previous move
+	Set move_zero //delete the current move from the store array
+	i=i-1
+	return
+
+function undo_game():
+	if (remaining dots=0)
+		return
+	if (the stored move is vertical)
+		call undo_v()
+	if (the stored move is horizontal)
+		call undo_h
+	update_labels()//labels as (player turn, player1 score,player2 score,remaining dots)
+	return
+
+function redo_v():
+	remaining dots=remaining dots-1
+	Display remaining dots
+
+	if (player1 plays the vertical move)
+		box[mredo[k].n][mredo[k].m].vl=1
+		set image of vertical move to player1_vline
+		fbox=p1_box
+
+	if (player2 plays the vertical move)
+		box[mredo[k].n][mredo[k].m].vl=2
+		set image of vertical move to player2_vline
+		fbox=p2_box
+
+	semi_filled_check(no. of row,no. of coloumn)
+	v_boxes_update(no. of row,no. of coloumn,fbox)
+	store (no. of row,no. of coloumn)
+
+	set player1 score to its value in redo array
+	set player2 score to its value in redo array
+
+	k=k-1
+	return
+
+function redo_h():
+	remaining dots=remaining dots-1
+	Display remaining dots
+
+	if (player1 plays the horizontal move)
+		box[mredo[k].n][mredo[k].m].hl=1
+		set image of horizontal move to player1_hline
+		fbox=p1_box
+
+	if (player2 plays the horizontal move)
+		box[mredo[k].n][mredo[k].m].hl=2
+		set image of horizontal move to player2_hline
+		fbox=p2_box
+
+	semi_filled_check(no. of row,no. of coloumn)
+	v_boxes_update(no. of row,no. of coloumn,fbox)
+	store (no. of row,no. of coloumn)
+
+	set player1 score to its value in redo array
+	set player2 score to its value in redo array
+
+	k=k-1
+	return
+
+function redo_game():
+	if (the redo move is vertical)
+		call redo_v()
+
+	if (the redo move is horizontal)
+		call redo_h()
+
+	return

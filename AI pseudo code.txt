@@ -1,0 +1,79 @@
+
+
+Computer AI algorithm (Minmax, AlphaBeta)
+
+function computer():
+	set move(integer array of size 3) = {-1,-1,-1} //{row index, column index, vertical or horizontal line(1 or 2)}
+	set score integer = -INFINITY //-100
+	for each available move on the grid:
+		set integer s = minimax(do_the_move_return_next_player_turn,4,-100,100) //minimax(player_turn, depth, alpha, beta)
+		
+		undo_the_move
+	
+		if s>score:
+			score =s;
+			move = {move_row, move_column, vertical_or_horizontal}
+	
+	
+	apply move
+	return
+	
+	
+function minimax(player turn, depth, alpha, beta):
+	if depth = 0 or remaining moves = 0 :
+		current score = calculate_score()
+		return current score
+		
+	set move(integer array of size 3) = {-1,-1,-1}
+	set score = 100
+	if player turn = real player:
+		for each available move on the grid:
+			set integer s = minimax(do_the_move_return_next_player_turn, depth-1, alpha, beta)
+			undo the move
+			if s<score :
+				score=s
+				move = {move_row, move_column, vertical_or_horizontal}
+			if beta>score :
+				beta = score
+			if beta<=alpha :
+				return score
+	
+	else if player turn = computer :
+		set score = -100
+		for each available move on the grid:
+			set integer s = minimax(do_the_move_return_next_player_turn, depth-1, alpha, beta)
+			undo_the_move
+			if s>score :
+				score = score
+				move = {move_row, move_column, vertical_or_horizontal}
+			if alpha < score :
+				alpha = score
+			if beta <= alpha :
+				return score
+			
+	return score
+			
+			
+			
+			
+			
+			
+function calculate_score():
+	set computer score =0
+	for each box on the grig:
+		if box is closed:
+			if closed by computer:
+				computer score = computer score + 1
+			else if closed by real player:
+				computer score = computer score - 1
+	
+	return computer score
+
+			
+			
+			
+			
+			
+			
+			
+			

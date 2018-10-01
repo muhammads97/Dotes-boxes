@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Dots&amp;Boxes" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/main_menu_gtk_gui" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="D&amp;B" prefix_auto="1" extension_auto="1" />
+				<Option object_output="../game" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-mms-bitfields" />
+			<Add option="-Wall" />
+			<Add directory="C:/GTK/include" />
+			<Add directory="C:/GTK/include/gtk-2.0" />
+			<Add directory="C:/GTK/include/cairo" />
+			<Add directory="C:/GTK/include/gdk" />
+			<Add directory="C:/GTK/include/glib-2.0" />
+			<Add directory="C:/GTK/lib/glib-2.0/include" />
+			<Add directory="C:/GTK/include/pango-1.0" />
+			<Add directory="C:/GTK/lib/gtk-2.0/include" />
+			<Add directory="C:/GTK/include/atk-1.0" />
+			<Add directory="C:/GTK/include/gdk-pixbuf-2.0" />
+		</Compiler>
+		<Linker>
+			<Add library="gtk-win32-2.0" />
+			<Add library="gobject-2.0" />
+			<Add library="glib-2.0" />
+			<Add directory="C:/GTK/lib" />
+		</Linker>
+		<Unit filename="bass.h" />
+		<Unit filename="computer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="computer.h" />
+		<Unit filename="game_options.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game_options.h" />
+		<Unit filename="game_over.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game_over.h" />
+		<Unit filename="game_play.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game_play.h" />
+		<Unit filename="icon.ico" />
+		<Unit filename="load_game.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="load_game.h" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="main_menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="main_menu.h" />
+		<Unit filename="resources.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="save_game.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="save_game.h" />
+		<Unit filename="sound_threads.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sound_threads.h" />
+		<Unit filename="top_ten.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="top_ten.h" />
+		<Unit filename="undo_redo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="undo_redo.h" />
+		<Unit filename="user_manual.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
